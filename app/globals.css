@@ -8,26 +8,41 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #ffffff;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.animate-out {
+  transform: scale(1.5);
+  opacity: 0;
+  transition: all 1s;
+}
+
+.carousel-inner img {
+  pointer-events: none;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index:10;
+  left: 0;
+  right: 0;
+  pointer-events: none; /* This ensures that clicks go through the overlay */
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 33%,
+      rgba(255, 255, 255, 0) 67%,
+      rgba(255, 255, 255, 1) 100%
+  );
 }
